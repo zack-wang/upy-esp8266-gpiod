@@ -5,6 +5,8 @@
 ## 我是在ubuntu18的桌上型電腦做這些實驗,
 
 ### 首先要確定你的"USB轉TTL線"運作是否正常,刪除flash 
+![uart-wiring](/images/usb_ttl_esp8266.jpg)
+
 ```
 esptool.py --port /dev/ttyUSB0 erase_flash
 ```
@@ -34,7 +36,7 @@ sta.ifconfig()
 ```
 假如連線正常時,你會看到它（esp8266)的ip,gateway等資料
 
-### 啟用WebRepl,就是用wifi與瀏覽器直接連上esp8266
+### 啟用WebRepl,就是用wifi與瀏覽器直接連上esp8266(在micropython內）
 ```
 import webrepl
 webrepl.start()
@@ -50,6 +52,7 @@ http://micropython.org/webrepl/?
 這時候輸入密碼
 
 ### 上傳額外的兩個函式
+![uploader](/images/file_uploader.png)
 ```
 wget https://github.com/micropython/micropython-lib/raw/master/umqtt.simple/umqtt/simple.py
 wget https://github.com/micropython/micropython-lib/raw/master/umqtt.robust/umqtt/robust.py
@@ -58,4 +61,4 @@ wget https://github.com/micropython/micropython-lib/raw/master/umqtt.robust/umqt
 
 >原本只要改main.py並且上傳就行了,但是似乎有些小bug
 >下載 boot.py 以及 gpiod.py
->跟上個步驟相同,選擇檔案上傳,按 **ctrl+D** 
+>跟上個步驟相同,選擇檔案上傳,在micropython按 **ctrl+D** 
