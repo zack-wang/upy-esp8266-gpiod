@@ -38,8 +38,7 @@ sta.ifconfig()
 
 ### 啟用WebRepl,就是用wifi與瀏覽器直接連上esp8266(在micropython內）
 ```
-import webrepl
-webrepl.start()
+import webrepl_setup
 ```
 它會要求你輸入密碼,很重要,仔細做
 
@@ -51,14 +50,24 @@ http://micropython.org/webrepl/?
 然後按下connect
 這時候輸入密碼
 
-### 上傳額外的兩個函式
+### 上傳額外的程式
 ![uploader](/images/file_uploader.png)
-```
-wget https://github.com/micropython/micropython-lib/raw/master/umqtt.simple/umqtt/simple.py
-wget https://github.com/micropython/micropython-lib/raw/master/umqtt.robust/umqtt/robust.py
-```
 點 **選擇檔案** , 選好以後再點 **send to device**
 
->原本只要改main.py並且上傳就行了,但是似乎有些小bug
->下載 boot.py 以及 gpiod.py
->跟上個步驟相同,選擇檔案上傳,在micropython按 **ctrl+D** 
+只要改main.py以下這幾行，並且上傳就行了，但是似乎有些小bug
+```
+#每個人的服務器地址都不同哦
+SERVER='m9999.cloudmqtt.com'
+#這個連接埠是未加密
+PORT=1883
+#這是帳號
+USR='MQTT_USER'
+#這是密碼
+PWD='MQTT_PASSWD'
+#keep-alive=3 minutes
+KEEPALV=180
+#這是client id
+UUID='UUID-1234-5678'
+
+```
+### 在micropython按 **ctrl+D** 重啟 
