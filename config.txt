@@ -1,0 +1,7 @@
+WIFI_ESSID
+WIFI_PASSWORD
+your.mqtt.broker
+1234567-your-port-number
+mqtt_password
+mqtt_client_id
+mqtt_topic
